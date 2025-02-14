@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi niña monita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffdde1;
+            padding: 50px;
+            animation: backgroundAnim 5s infinite alternate;
+        }
+        @keyframes backgroundAnim {
+            0% { background-color: #ffdde1; }
+            100% { background-color: #ffb6c1; }
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            position: relative;
+            animation: bounce 1.5s infinite alternate ease-in-out;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #video {
+           display: none;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.5);
+        }
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: absolute;
+            left: 70%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            color: #ff4d4d;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hello-kitty {
+            position: absolute;
+            width: 100px;
+            bottom: 0;
+            left: 0;
+            animation: kittyMove 5s linear infinite alternate;
+        }
+        @keyframes kittyMove {
+            0% { left: 0; }
+            100% { left: calc(100% - 100px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mi niña monita, ¿quieres ser mi San Valentín? </h1>
+        <button class="yes" onclick="mostrarMensaje()">Sí</button>
+        <button class="no" onmouseover="moverBoton(this)">No</button>
+        <p id="message">¡Claro que  quieres mmi niñaaaa, TE AMO MUCHOOOOOO 💗💗💗! </p>
+        <video id="video" width="320" height="240" controls style="display: none; margin-top: 20px;">
+            <source src="hellokitty.MOV" type="video/mp4">
+        </video>
+    </div>
+    <script>
+        function moverBoton(boton) {
+            let x = Math.random() * (window.innerWidth - boton.clientWidth);
+            let y = Math.random() * (window.innerHeight - boton.clientHeight);
+            boton.style.position = 'absolute';
+            boton.style.transition = 'left 0.3s ease, top 0.3s ease';
+            boton.style.left = `${x}px`;
+            boton.style.top = `${y}px`;
+        }
+        
+        function mostrarMensaje() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('video').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
